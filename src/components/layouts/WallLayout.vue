@@ -1,21 +1,28 @@
 <template>
-  <div>
-      Please
-      <ul>
-          <li v-for="item in cars" :key="item.objectId">
-              <h5>{{item.name}}</h5>
-              <h5>{{item.description}}</h5>
-              <img :src="item.imageUrl" alt="">
-          </li>
-      </ul>
-  </div>
+    <masonry
+    :cols="{default: 6, 1000: 4, 700: 2, 400: 1}"
+    :gutter="30"
+    >
+        <div v-for="(item, index) in cars" :key="index">
+            <router-link :to="'/car/'+item.objectId">
+                <q-card class="q-mx-xs q-my-sm">
+                    <q-img
+                        :src="item.imageURL"
+                        basic
+                    >
+                    </q-img>
+                </q-card>
+            </router-link>
+        </div>
+    </masonry>
+
 </template>
 
 <script>
 export default {
     props: {
         cars: Array,
-    }
+    },
 }
 </script>
 

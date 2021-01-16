@@ -1,3 +1,17 @@
 @import './quasar.variables.scss';
 @import '~quasar-styl';
 // @import '~quasar-addon-styl';
+
+
+#carDetailInfo {
+    max-height: 600px;
+    border-radius: 20px;
+}
+
+#carDetailInfo h5 {
+    margin-bottom: 10px;
+}
+
+#carDetailInfo p {
+    margin-top: 0px;
+}
