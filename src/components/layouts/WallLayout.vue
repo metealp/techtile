@@ -1,6 +1,6 @@
 <template>
     <masonry
-    :cols="{default: 6, 1000: 4, 700: 2, 400: 1}"
+    :cols="{default: 6, 1200: 4, 700: 2, 400: 1}"
     :gutter="30"
     >
         <div v-for="(item, index) in cars" :key="index">

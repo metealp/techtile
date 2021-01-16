@@ -29,7 +29,6 @@ export const authStore = {
         async signInUser(context, payload){
             Axios.post(`${config.baseUrl}/users/login`, payload)
             .then(res => {
-                console.log(res.data)
                 context.commit("setUser", res.data)
             })
             .then(()=>{
@@ -63,7 +62,6 @@ export const authStore = {
                     position: 'top',
                     timeout: 1500,
                 })
-                // console.log(e)
             )
         },
         logUserOut(context){
