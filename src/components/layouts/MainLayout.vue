@@ -2,18 +2,14 @@
   <q-layout view="hHh lpR fFf">
 
     <q-header class="bg-primary text-white" height-hint="98">
-      <q-toolbar>
-        <!-- <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
-          </q-avatar>
-          Title
-        </q-toolbar-title> -->
-        <q-tabs align="right">
-          <q-route-tab to="/signin" label="Sign In" />
-          <q-route-tab to="/signup" label="Sign Up" />
-        </q-tabs>
-      </q-toolbar>
+        <q-toolbar>
+            <q-tabs align="right">
+                <q-route-tab to="/" label="Home" />
+                <q-route-tab to="/signin" label="Sign In" v-show="!LogStatus"/>
+                <q-route-tab to="/signup" label="Sign Up" v-show="!LogStatus"/>
+                <q-route-tab to="/" label="Log Out" @click="Logout" v-show="LogStatus"/>
+            </q-tabs>
+        </q-toolbar>
 
     </q-header>
 
@@ -26,6 +22,16 @@
 
 <script>
 export default {
+    computed: {
+        LogStatus(){
+            return this.$store.state.authStore.isLoggedIn
+        }
+    },
+    methods: {
+        Logout(){
+            this.$store.dispatch("authStore/logUserOut")
+        }
+    }
 
 }
 </script>

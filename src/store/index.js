@@ -11,22 +11,15 @@ const debug = process.env.NODE_ENV !== 'production';
 export default new Vuex.Store({
 
   state: {
-    error: false,
-    errorMsg: "",
-    successMsg: "",
+
   },
 
   mutations: {
-    toastError(state, payload){
-      state.errorMsg = payload.message;
-      state.error = true;
-    }
+
   },
 
   actions: {
-    networkError(context, error){
-      context.commit('toastError', error);
-    },
+
   },
 
   getters: {
